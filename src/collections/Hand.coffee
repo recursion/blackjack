@@ -18,13 +18,18 @@ class window.Hand extends Backbone.Collection
     memo or 1 is card.get('value')
   , 0
 
-  blackJack: -> @scores()[0] == 21
+  blackJack: -> @bestScore() == 21
 
   busted: -> @scores()[0] > 21
 
   minScore: -> @reduce (score, card) ->
     score + if card.get 'revealed' then card.get 'value' else 0
   , 0
+
+  bestScore: ->
+    # if highScore <= 21
+    return @scores()[1] if @scores()[1] <= 21
+    @scores()[0]
 
   scores: ->
     # The scores are an array of potential scores.
