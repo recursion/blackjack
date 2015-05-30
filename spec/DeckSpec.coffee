@@ -13,3 +13,10 @@ describe 'deck', ->
       assert.strictEqual deck.length, 50
       assert.strictEqual deck.last(), hand.hit().last()
       assert.strictEqual deck.length, 49
+
+    it 'should get disabled when score is 21 or greater', ->
+      while hand.scores()[0] < 21
+        hand.hit()
+      assert.equal hand.length, hand.hit().length
+
+
