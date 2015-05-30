@@ -4,6 +4,7 @@ class window.Hand extends Backbone.Collection
   initialize: (array, @deck, @isDealer) ->
     @standing = false
     @on 'add', => @checkScore()
+    @checkScore()
 
   checkScore: ->
     @trigger('bust') if @busted()
@@ -47,3 +48,5 @@ class window.Hand extends Backbone.Collection
       @standing = true
       @trigger 'stand'
 
+  reveal: ->
+    @at(0).flip() if @isDealer

@@ -26,6 +26,7 @@ class window.App extends Backbone.Model
 
   dealerPlay: ->
     hand = @get('dealerHand')
+    hand.reveal()
     while hand.scores()[0] < 17
       hand.hit()
 
