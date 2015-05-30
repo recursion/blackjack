@@ -9,6 +9,12 @@ describe 'deck', ->
     hand = deck.dealPlayer()
 
   describe 'hit', ->
+    it 'should create randomly shuffled decks on initialise', ->
+      deck1 = new Deck()
+      deck2 = new Deck()
+      for x in [0...52]
+        assert.strictNotEqual deck1.at(x).get('rankName') deck2.at(x).get('rankName')
+
     it 'should give the last card from the deck', ->
       assert.strictEqual deck.length, 50
       assert.strictEqual deck.last(), hand.hit().last()
