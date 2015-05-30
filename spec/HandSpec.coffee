@@ -21,6 +21,9 @@ describe 'Hand', ->
       card2 = createCard(0, 1)
       hand = new Hand [card1, card2]
       assert.equal hand.bestScore(), 21
-      # how can we get specific card from the deck
-      # give the hand specific cards and test the return values from
-      # bestScore
+      card1 = createCard(1, 0)
+      card2 = createCard(0, 1)
+      card3 = createCard(5, 1)
+      hand = new Hand [card1, card2, card3]
+      assert.equal hand.bestScore(), 16
+

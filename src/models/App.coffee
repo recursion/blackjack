@@ -11,7 +11,6 @@ class window.App extends Backbone.Model
 
     @get('playerHand').on 'stand', => @dealerPlay()
     @get('playerHand').on 'bust', => @displayResults()
-    @get('playerHand').on 'blackjack', => @dealerPlay()
 
   deal: ->
     #return the cards from player hand to the deck -->>

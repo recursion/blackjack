@@ -8,7 +8,7 @@ class window.Hand extends Backbone.Collection
 
   checkScore: ->
     @trigger('bust') if @busted()
-    @trigger('blackjack') if @blackJack()
+    @trigger('stand') if @blackJack()
 
   hit: ->
     if !@standing and !@busted() and !@blackJack()
