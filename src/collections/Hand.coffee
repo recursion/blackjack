@@ -10,7 +10,7 @@ class window.Hand extends Backbone.Collection
     @trigger('blackjack') if @blackJack()
 
   hit: ->
-    if !@busted() and !@blackJack()
+    if !@standing and !@busted() and !@blackJack()
       @add(@deck.pop())
     @
 
