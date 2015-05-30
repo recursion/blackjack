@@ -12,11 +12,7 @@ class window.App extends Backbone.Model
     #return the cards from ther dealer hand to the deck -->>
     @get('dealerHand').returnCardsToDeck()
     #shuffle the deck
-    console.log @get 'deck'
-
     @get('deck').shuffleIt()
-    #this.collection.reset(this.collection.shuffle(), {silent:true});
 
-    console.log @get 'deck'
     @get('deck').dealPlayer @get('playerHand')
     @get('deck').dealDealer @get('dealerHand')

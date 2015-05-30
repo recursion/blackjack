@@ -2,12 +2,16 @@ class window.Hand extends Backbone.Collection
   model: Card
 
   initialize: (array, @deck, @isDealer) ->
+    @standing = false
+    @on 'add', => @checkScore()
+
+  checkScore: ->
+    @trigger('bust') if @busted()
+    @trigger('blackjack') if @blackJack()
 
   hit: ->
     if !@busted() and !@blackJack()
       @add(@deck.pop())
-      @trigger('bust') if @busted()
-      @trigger('blackjack') if @blackJack()
     @
 
   hasAce: -> @reduce (memo, card) ->
@@ -31,3 +35,10 @@ class window.Hand extends Backbone.Collection
   returnCardsToDeck: ->
     while @length
       @deck.push(@pop())
+    @standing = false
+
+  stand: ->
+    if !@standing and !@busted() and !@blackJack()
+      @standing = true
+      @trigger 'stand'
+

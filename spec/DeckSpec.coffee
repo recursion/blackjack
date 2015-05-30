@@ -25,4 +25,9 @@ describe 'deck', ->
         hand.hit()
       assert.equal hand.length, hand.hit().length
 
-
+  describe 'deal', ->
+    it 'should reset the deck', ->
+      deck.dealPlayer()
+      assert deck.length, 47
+      deck.shuffleIt()
+      assert deck.length, 52
