@@ -1,8 +1,9 @@
 class window.ScoreView extends Backbone.View
 
   template: _.template '
-      Your Score: <span class="player-wins"></span>
-      Dealer\'s Score: <span class="dealer-wins"></span>
+      Player Wins: <span class="player-wins"></span
+      Dealer Wins: <span class="dealer-win"></span>
+      Pushes: <span class="pushes"></span>
     '
 
   initialize: ->
@@ -10,7 +11,7 @@ class window.ScoreView extends Backbone.View
     @render()
 
   render: ->
-    #@$el.children().detach()
     @$el.html @template
     @$('.player-wins').text @model.get 'playerWins'
     @$('.dealer-wins').text @model.get 'dealerWins'
+    @$('.pushes').text @model.get 'pushes'
