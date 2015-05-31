@@ -9,13 +9,14 @@ class window.Hand extends Backbone.Collection
     @checkScore()
     @on 'add', @checkScore, @
 
+  stop: ->
+    @off 'add', @checkScore
+    @standing = true
+
   checkScore: ->
     @trigger('bust') if @busted()
-    if @blackJack()
-      return if @standing
-      @standing = true
-      @off 'add', @checkScore, @
-      setTimeout => @trigger('stand')
+    @trigger('stand') if @blackJack()
+    if @busted() or @blackJack() then @stop
 
   hit: ->
     if !@standing and !@busted() and !@blackJack()
