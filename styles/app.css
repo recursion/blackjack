@@ -3,7 +3,9 @@ body {
 }
 .card {
   float: left;
-  border: solid 1px black;
+  border: solid 2px black;
+  box-shadow: 1px 1px black;
+  background: white;
   width: 100px;
   border-radius: 5px;
   height: 140px;
@@ -18,14 +20,6 @@ body {
   overflow: auto;
 }
 
-.scores-container {
-  background: white;
-  border: 10px dashed black;
-  px dashed black;
-  width: 50%;
-  margin: 0 auto;
-  height: 300px;
-}
 .controls {
   margin: 0 auto;
   padding: 5px;
@@ -35,6 +29,7 @@ body {
 
 .controls button {
   margin: 5px 10px;
+  border-radius: 25px;
   background: white;
   height: 2em;
   font-size: 1em;
@@ -43,10 +38,21 @@ body {
 
 .scores-container {
   position: relative;
+  background: white;
+  border: 10px dashed black;
+  width: 500px;
+  margin: 0 auto;
+  height: 300px;  
   padding: 10px;
   font-size: 1.25em;
   font-weight: bold;
   color: green;
+}
+
+.player-hand-container, .dealer-hand-container {
+  height: 250px;
+  width: 80%;
+  margin: 0 auto;
 }
 
 label#player {
@@ -66,4 +72,15 @@ label#pushes {
   position: absolute;
   bottom: 0px;
   left: 40%;
+}
+label#status {
+  margin: 5px auto;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 400px;
+  height: 200px;
+  border: 5px dotted red;
+  text-align: center;
+  vertical-align: middle;
 }
