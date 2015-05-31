@@ -5,6 +5,7 @@ class window.AppView extends Backbone.View
     <button class="deal-button">Deal</button>
     <div class="player-hand-container"></div>
     <div class="dealer-hand-container"></div>
+    <div class="scores-container"></div>
   '
 
   events:
@@ -22,4 +23,4 @@ class window.AppView extends Backbone.View
     @$el.html @template()
     @$('.player-hand-container').html new HandView(collection: @model.get 'playerHand').el
     @$('.dealer-hand-container').html new HandView(collection: @model.get 'dealerHand').el
-
+    @$('.scores-container').html new ScoreView(model: @model).el

@@ -23,11 +23,12 @@ class window.App extends Backbone.Model
     @get('deck').dealPlayer @get('playerHand')
     @get('deck').dealDealer @get('dealerHand')
 
+    @get('playerHand').start()
+
   dealerPlay: ->
-    console.log("dealers turn to play")
     hand = @get('dealerHand')
     hand.reveal()
-    while hand.scores()[0] < 17
+    while hand.bestScore() < 17
       hand.hit()
 
     @displayResults()
@@ -38,16 +39,16 @@ class window.App extends Backbone.Model
 
     if player.busted()
       console.log('dealer wins');
-      @set 'dealerWins', @get 'dealerWins' + 1
+      @set 'dealerWins', @get('dealerWins') + 1
     else if dealer.busted()
       console.log('player wins');
-      @set 'playerWins', @get 'playerWins' + 1
+      @set 'playerWins', @get('playerWins') + 1
     else if dealer.bestScore() > player.bestScore()
       console.log('dealer wins');
-      @set 'dealerWins', @get 'dealerWins' + 1
+      @set 'dealerWins', @get('dealerWins') + 1
     else if player.bestScore() > dealer.bestScore()
       console.log('player wins');
-      @set 'playerWins', @get 'playerWins' + 1
+      @set 'playerWins', @get('playerWins') + 1
     else
       console.log('its a tie');
 
