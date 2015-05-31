@@ -30,9 +30,11 @@ class window.App extends Backbone.Model
   dealerPlay: ->
     hand = @get('dealerHand')
     hand.reveal()
+    hand.start()
     while hand.bestScore() < 17
       hand.hit()
 
+    hand.stop()
     @displayResults()
 
   displayResults: ->
