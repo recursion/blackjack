@@ -1,3 +1,6 @@
+body {
+  background: green;
+}
 .card {
   float: left;
   border: solid 1px black;
@@ -13,4 +16,54 @@
 
 .hand {
   overflow: auto;
+}
+
+.scores-container {
+  background: white;
+  border: 10px dashed black;
+  px dashed black;
+  width: 50%;
+  margin: 0 auto;
+  height: 300px;
+}
+.controls {
+  margin: 0 auto;
+  padding: 5px;
+  width: 50%;
+  text-align: center;
+}
+
+.controls button {
+  margin: 5px 10px;
+  background: white;
+  height: 2em;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.scores-container {
+  position: relative;
+  padding: 10px;
+  font-size: 1.25em;
+  font-weight: bold;
+  color: green;
+}
+
+label#player {
+  position: absolute;
+  margin: 5px;
+  top: 0px;
+  left: 0px;
+}
+label#dealer {
+  margin: 5px;
+  position: absolute;
+  top: 0px;
+  right: 50px;
+}
+label#pushes {
+  margin: 5px;
+  position: absolute;
+  bottom: 0px;
+  left: 40%;
 }
