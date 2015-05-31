@@ -4,11 +4,10 @@ class window.Hand extends Backbone.Collection
   initialize: (array, @deck, @isDealer) ->
     @standing = false
     @on 'add', => @checkScore()
-    @checkScore()
 
   checkScore: ->
     @trigger('bust') if @busted()
-    @trigger('stand') if @blackJack()
+    setTimeout => @trigger('stand') if @blackJack()
 
   hit: ->
     if !@standing and !@busted() and !@blackJack()

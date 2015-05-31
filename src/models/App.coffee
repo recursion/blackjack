@@ -3,8 +3,8 @@
 class window.App extends Backbone.Model
   initialize: ->
     @set 'deck', deck = new Deck()
-    @set 'playerHand', deck.dealPlayer()
-    @set 'dealerHand', deck.dealDealer()
+    @set 'playerHand', deck.newHand()
+    @set 'dealerHand', deck.newHand(true)
 
     @set 'playerWins', 0
     @set 'dealerWins', 0
@@ -24,6 +24,7 @@ class window.App extends Backbone.Model
     @get('deck').dealDealer @get('dealerHand')
 
   dealerPlay: ->
+    console.log("dealers turn to play")
     hand = @get('dealerHand')
     hand.reveal()
     while hand.scores()[0] < 17

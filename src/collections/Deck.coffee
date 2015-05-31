@@ -4,17 +4,14 @@ class window.Deck extends Backbone.Collection
   initialize: ->
    @shuffleIt()
 
+  newHand: (isDealer) ->
+    new Hand [], @, isDealer
+
   dealPlayer: (hand) ->
-   if hand?
-     hand.add [@pop(), @pop()];
-   else
-     new Hand [@pop(), @pop()], @
+   hand.add [@pop(), @pop()];
 
   dealDealer: (hand) ->
-    if hand?
-      hand.add [@pop().flip(), @pop()]
-    else
-      new Hand [@pop().flip(), @pop()], @, true
+    hand.add [@pop().flip(), @pop()]
 
   shuffleIt: ->
     @reset()
