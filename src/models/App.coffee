@@ -9,12 +9,16 @@ class window.App extends Backbone.Model
     @set 'playerWins', 0
     @set 'dealerWins', 0
     @set 'pushes', 0
-
+    @set 'status', 'Click Deal to start a new Game!'
     @get('playerHand').on 'stand', => @dealerPlay()
     @get('playerHand').on 'bust', => @displayResults()
 
   deal: ->
-    @set 'status', ''
+    @set 'status', 'Dealing new hand...'
+    setTimeout =>
+      @set 'status', ''
+    , 500
+
     #return the cards from player hand to the deck -->>
     @get('playerHand').returnCardsToDeck()
     #return the cards from ther dealer hand to the deck -->>

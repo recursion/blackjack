@@ -42,7 +42,7 @@ body {
   border: 10px dashed black;
   width: 500px;
   margin: 0 auto;
-  height: 300px;  
+  height: 300px;
   padding: 10px;
   font-size: 1.25em;
   font-weight: bold;
@@ -50,11 +50,16 @@ body {
 }
 
 .player-hand-container, .dealer-hand-container {
-  height: 250px;
+  height: 200px;
   width: 80%;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
+h2 {
+  position: relative;
+  left: 45%;
+  margin: 0 auto;
+}
 label#player {
   position: absolute;
   margin: 5px;
@@ -73,7 +78,7 @@ label#pushes {
   bottom: 0px;
   left: 40%;
 }
-label#status {
+#statusBox {
   margin: 5px auto;
   position: absolute;
   top: 50px;
@@ -83,4 +88,12 @@ label#status {
   border: 5px dotted red;
   text-align: center;
   vertical-align: middle;
+}
+
+label#status {
+  position: relative;
+  top: 40%;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: bottom;
 }

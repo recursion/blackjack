@@ -4,7 +4,7 @@ class window.ScoreView extends Backbone.View
       <label id="player">Player Wins: <span class="player-wins"></span></label>
       <label id="dealer">Dealer Wins: <span class="dealer-wins"></span></label>
       <label id="pushes">Pushes: <span class="pushes"></span></label>
-      <label id="status"></label>
+      <div id="statusBox"><label id="status"></label></div>
     '
 
   initialize: ->
